@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>Gridea</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1645606553521">
+<link rel="shortcut icon" href="/favicon.ico?v=1645606880956">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -184,7 +184,7 @@
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
-    <p class="site-author-name">我是谁</p>
+    <p class="site-author-name">sspu-wyl</p>
     
   </div>
   <div class="sidebar-item side-item-stat right-motion">
@@ -266,29 +266,6 @@
         
         
           
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p>在<a href="https://nodejs.org/zh-cn/">node.js官网</a>下载windows版本长期维护版</p>
-<figure data-type="image" tabindex="1"><img src="https://tvax1.sinaimg.cn/large/a252aa13gy1gzmey1zlu9j21hc0rqdov.jpg" alt="image" loading="lazy"></figure>
-<p>下好后双击.msi文件，选择安装文件夹然后就是一路next--&gt;finish</p>
-
-                
-              <p>
-            
           
         
         
@@ -358,9 +335,16 @@
         
         
           
+          
+            <p>
+            
+          
             <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
 ✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 
+            
+              <img src="/post-images/hello-gridea.png" />
+            
           
         
         
@@ -435,7 +419,7 @@
   </footer>
   
     
-      <div class="drawer-box left" id="drawer_box">
+      <div class="drawer-box right" id="drawer_box">
         <span class="muse-line muse-line-first"></span>
         <span class="muse-line muse-line-middle"></span>
         <span class="muse-line muse-line-last"></span>
@@ -446,6 +430,13 @@
           
         </div>
         
+          
+            
+              <div class="bg-img">
+                <img src="\media\images\custom-bgImg.jpg" />
+              </div>
+              
+                
                   
                         
 </div>
@@ -593,7 +584,7 @@
   }
 
   // 链接跳转
-  let newWindow = "false";
+  let newWindow = "true";
   if (newWindow === "true") {
     let links = document.querySelectorAll(".post-body a");
     links.forEach((item) => {
@@ -613,7 +604,7 @@
   hljs.initHighlightingOnLoad();
 
   // 离开当前页title变化
-  var leaveTitle = "";
+  var leaveTitle = "bye";
   var normal_title = document.title;
   if (leaveTitle) {
     document.addEventListener("visibilitychange", function () {
@@ -1094,8 +1085,17 @@ hexo s
 
 
 
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
 
 
+  <script src="/media/js/cool.js"></script>
+
+
+
+  <div class="snow-container"></div>
+  <script src="/media/js/bg/snow.js"></script>
 
 
 </html>

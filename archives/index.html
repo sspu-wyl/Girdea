@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>Gridea</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1645606553521">
+<link rel="shortcut icon" href="/favicon.ico?v=1645606880956">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -185,7 +185,7 @@
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
-    <p class="site-author-name">我是谁</p>
+    <p class="site-author-name">sspu-wyl</p>
     
   </div>
   <div class="sidebar-item side-item-stat right-motion">
@@ -330,7 +330,7 @@
   </footer>
   
     
-      <div class="drawer-box left" id="drawer_box">
+      <div class="drawer-box right" id="drawer_box">
         <span class="muse-line muse-line-first"></span>
         <span class="muse-line muse-line-middle"></span>
         <span class="muse-line muse-line-last"></span>
@@ -341,6 +341,13 @@
           
         </div>
         
+          
+            
+              <div class="bg-img">
+                <img src="\media\images\custom-bgImg.jpg" />
+              </div>
+              
+                
                   
                         
 </div>
@@ -488,7 +495,7 @@
   }
 
   // 链接跳转
-  let newWindow = "false";
+  let newWindow = "true";
   if (newWindow === "true") {
     let links = document.querySelectorAll(".post-body a");
     links.forEach((item) => {
@@ -508,7 +515,7 @@
   hljs.initHighlightingOnLoad();
 
   // 离开当前页title变化
-  var leaveTitle = "";
+  var leaveTitle = "bye";
   var normal_title = document.title;
   if (leaveTitle) {
     document.addEventListener("visibilitychange", function () {
@@ -989,8 +996,17 @@ hexo s
 
 
 
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
 
 
+  <script src="/media/js/cool.js"></script>
+
+
+
+  <div class="snow-container"></div>
+  <script src="/media/js/bg/snow.js"></script>
 
 
 </html>

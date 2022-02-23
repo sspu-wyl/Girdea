@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://girdea-psi.vercel.app</id>
     <title>Gridea</title>
-    <updated>2022-02-23T09:14:03.827Z</updated>
+    <updated>2022-02-23T09:28:06.568Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://girdea-psi.vercel.app"/>
     <link rel="self" href="https://girdea-psi.vercel.app/atom.xml"/>
@@ -11,12 +11,12 @@
     <icon>https://girdea-psi.vercel.app/favicon.ico</icon>
     <rights>All rights reserved 2022, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[#####windows环境下安装git+node.js+hexo]]></title>
+        <title type="html"><![CDATA[windows环境下安装git+node.js+hexo]]></title>
         <id>https://girdea-psi.vercel.app/post/1/</id>
         <link href="https://girdea-psi.vercel.app/post/1/">
         </link>
         <updated>2022-02-23T08:45:14.000Z</updated>
-        <content type="html"><![CDATA[<p>在<a href="https://nodejs.org/zh-cn/">node.js官网</a>下载windows版本长期维护版</p>
+        <content type="html"><![CDATA[<p>在<a href="https://nodejs.org/zh-cn/">node.js官网</a>下载windows长期期维护版</p>
 <figure data-type="image" tabindex="1"><img src="https://tvax1.sinaimg.cn/large/a252aa13gy1gzmey1zlu9j21hc0rqdov.jpg" alt="image" loading="lazy"></figure>
 <p>下好后双击.msi文件，选择安装文件夹然后就是一路next--&gt;finish</p>
 <figure data-type="image" tabindex="2"><img src="https://tva4.sinaimg.cn/large/a252aa13gy1gzmeyn3h0bj20be02ljrl.jpg" alt="image" loading="lazy"></figure>
@@ -83,8 +83,8 @@ Warning:This will override Windows tools like &quot;find and sort&quot;.Only use
 <pre><code>git --version
 </code></pre>
 <figure data-type="image" tabindex="14"><img src="https://tva1.sinaimg.cn/large/a252aa13gy1gzmf0za1q8j208p02yaa2.jpg" alt="image" loading="lazy"></figure>
-<h2 id="接下来安装hexo">接下来安装hexo</h2>
-<h5 id="介绍下在windows环境下安装hexo">介绍下在windows环境下安装hexo</h5>
+<p>##接下来安装hexo</p>
+<p>#介绍下在windows环境下安装hexo</p>
 <p>找个空白文件夹，右键git base here</p>
 <p><img src="https://tva1.sinaimg.cn/large/a252aa13gy1gzmf172695j207f0aht9h.jpg" alt="image" loading="lazy"><img src="https://tvax2.sinaimg.cn/large/a252aa13gy1gzmf1gymg8j20gj0ah3za.jpg" alt="image" loading="lazy"></p>
 <p>输入以下命令</p>

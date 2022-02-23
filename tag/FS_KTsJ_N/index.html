@@ -5,18 +5,18 @@
   <meta charset="UTF-8" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="keywords" content="">
+<meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
-<meta name="theme-color" content="">
+<meta name="theme-color" content="#000">
 <title>Gridea</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1645606523948">
-<link rel="stylesheet" href="/media/css/pisces.css">
+<link rel="shortcut icon" href="/favicon.ico?v=1645606553521">
+<link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
   href="//fonts.loli.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
   rel="stylesheet" type="text/css">
 
-<link href="/media/hljs/styles/github.css"
+<link href="/media/hljs/styles/default.css"
   rel="stylesheet">
 
 <link rel="stylesheet" href="/styles/main.css">
@@ -47,9 +47,9 @@
   <div class="head-top-line"></div>
   <div class="header-box">
     
-<div class="pisces">
-  <header class="header  ">
-    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+<div class="mist">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper  " id="header">
       <div class="nav-toggle" id="nav_toggle">
         <div class="toggle-box">
           <div class="line line-top"></div>
@@ -60,8 +60,14 @@
       <div class="site-meta">       
         <div class="site-title">
           
-            <a href="/" class="brand">
-              <span>Gridea</span>
+            <a href="/" class="">
+              <span class="logo-line-before">
+                <i class=""></i>
+              </span>
+              <span class="main-title">Gridea</span>
+              <span class="logo-line-after">
+                <i class=""></i>
+              </span>
             </a>  
           
         </div>
@@ -71,6 +77,8 @@
         <ul id="nav_ul">
           
             
+            
+              
             
             <li class="nav-item ">
               
@@ -83,6 +91,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -93,6 +103,8 @@
             </li>
           
             
+            
+              
             
             <li class="nav-item ">
               
@@ -105,6 +117,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -115,6 +129,22 @@
             </li>
           
           
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    <i class="fa fa-address-book"></i> 友链
+                  
+                </a>
+              </li>
+            
+          
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -147,14 +177,14 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  pisces">
+      class="section-layout bg-color mist">
       <div class="section-layout-wrapper">
         <div id="sidebarMeta" class="sidebar">
     
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+<div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
-    <p class="site-author-name"></p>
+    <p class="site-author-name">我是谁</p>
     
   </div>
   <div class="sidebar-item side-item-stat right-motion">
@@ -173,10 +203,6 @@
     </div>
   </div>
   
-    
-  
-  
-
   
 
 
@@ -185,7 +211,7 @@
 </div>
 <script>
   let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = '';
+  let scheme = 'mist';
   let sidebarWrapper = document.querySelector('.sidebar-wrapper');
   if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
     document.addEventListener('scroll', function(e) {
@@ -270,21 +296,19 @@
   </footer>
   
     
-        <div class="pisces back-to-top" id="back_to_top">
+      <div class="drawer-box left" id="drawer_box">
+        <span class="muse-line muse-line-first"></span>
+        <span class="muse-line muse-line-middle"></span>
+        <span class="muse-line muse-line-last"></span>
+      </div>
+      
+        <div class="mist back-to-top" id="back_to_top">
           <i class="fa fa-arrow-up"></i>
           
-            <span class="scrollpercent"> <span id="back_to_top_text">0</span>% </span>
-            
         </div>
         
-          
-            
-                
                   
                         
-                          
-
-                            
 </div>
 <script>
   let sideBarOpen = "sidebar-open";
@@ -430,7 +454,7 @@
   }
 
   // 链接跳转
-  let newWindow = "";
+  let newWindow = "false";
   if (newWindow === "true") {
     let links = document.querySelectorAll(".post-body a");
     links.forEach((item) => {
@@ -484,6 +508,280 @@
 </script>
   </div>
 </body>
+
+  <div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
+      </div>
+      <i id="close" class="fa fa-times-circle"></i>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://girdea-psi.vercel.app/post/1/"" data-c="
+          &lt;p&gt;在&lt;a href=&#34;https://nodejs.org/zh-cn/&#34;&gt;node.js官网&lt;/a&gt;下载windows版本长期维护版&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://tvax1.sinaimg.cn/large/a252aa13gy1gzmey1zlu9j21hc0rqdov.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;下好后双击.msi文件，选择安装文件夹然后就是一路next--&amp;gt;finish&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://tva4.sinaimg.cn/large/a252aa13gy1gzmeyn3h0bj20be02ljrl.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h5 id=&#34;测试是否安装成功我这个是之前装好的老版本-ps请忽略上下版本号为啥不一样&#34;&gt;测试是否安装成功（我这个是之前装好的老版本 PS:请忽略上下版本号为啥不一样）&lt;/h5&gt;
+&lt;p&gt;win+r输入cmd，在cmd中输入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ndoe -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://tvax1.sinaimg.cn/large/a252aa13gy1gzmeyugyg1j206b01kweb.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code&gt;npm -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://tvax4.sinaimg.cn/large/a252aa13gy1gzmez0zu8nj205k01i0sk.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;输出版本号，这就算安装成功了。&lt;/p&gt;
+&lt;h2 id=&#34;windows环境下安装git&#34;&gt;windows环境下安装git&lt;/h2&gt;
+&lt;p&gt;Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。&lt;/p&gt;
+&lt;p&gt;Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。&lt;/p&gt;
+&lt;p&gt;Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。&lt;/p&gt;
+&lt;p&gt;--引用自 菜鸟教程&lt;/p&gt;
+&lt;p&gt;首先找到&lt;a href=&#34;https://git-scm.com/&#34;&gt;git官网&lt;/a&gt;打开找到Downloads（&lt;a href=&#34;https://git-scm.com/downloads&#34;&gt;下载&lt;/a&gt;）&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://tvax2.sinaimg.cn/large/a252aa13gy1gzmez9x2v6j214c0mn4kk.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;找到你的操作系统对应的软件包下载下来&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://tva2.sinaimg.cn/large/a252aa13gy1gzmezgyijej215l0mth36.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://tva2.sinaimg.cn/large/a252aa13gy1gzmezne929j213w0hxtma.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://tva2.sinaimg.cn/large/a252aa13gy1gzmezu6avjj20by02qglv.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;双击打开&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://tvax4.sinaimg.cn/large/a252aa13gy1gzmezzl3g7j20e90b3wif.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;点击Next进入下一步选择安装路径&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;https://tva3.sinaimg.cn/large/a252aa13gy1gzmf05pgr0j20e90b3mzn.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;选择好安装路径后，点击Next进入下一步，会有相应的安装配置&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;11&#34;&gt;&lt;img src=&#34;https://tva2.sinaimg.cn/large/a252aa13gy1gzmf0hc71uj20e90b30x1.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;Additional icons 附加图标&lt;br&gt;
+On the Desktop 在桌面上&lt;br&gt;
+Windows Explorer integration  Windows资源管理器集成鼠标右键菜单&lt;br&gt;
+Git Bash Here&lt;br&gt;
+Git GUI Here&lt;br&gt;
+Git LFS (Large File Support)  大文件支持&lt;br&gt;
+Associate .git* configuration files with the default text editor  将 .git 配置文件与默认文本编辑器相关联&lt;br&gt;
+Associate .sh files to be run with Bash  将.sh文件关联到Bash运行&lt;br&gt;
+Use a TrueType font in all console windows  在所有控制台窗口中使用TrueType字体&lt;br&gt;
+将Git-Bash添加到新的Windows Terminal&lt;/p&gt;
+&lt;p&gt;之后next&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;12&#34;&gt;&lt;img src=&#34;https://tva4.sinaimg.cn/large/a252aa13gy1gzmf0mn6snj20g60d90x0.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;Use the Nano editor by default  默认使用 Nano 编辑器&lt;br&gt;
+Use Vim (The ubiquitous text editor) as Git&#39;s default editor  使用 Vim 作为 Git 的默认编辑器&lt;br&gt;
+Use Notepad++ as Git&#39;s default editor  使用 Notepad++ 作为 Git 的默认编辑器&lt;br&gt;
+Use Visual Studio Code as Git&#39;s default editor  使用 Visual Studio Code 作为Git 的默认编辑器&lt;br&gt;
+Use Visual Studio Code Insiders as Git&#39;s default editor 使用Visual Studio Code Insiders 作为 Git 的默认编辑器&lt;/p&gt;
+&lt;p&gt;next 进入“调整Path环境变量”窗口&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;13&#34;&gt;&lt;img src=&#34;https://tva2.sinaimg.cn/large/a252aa13gy1gzmf0tjn2zj20g30dawkv.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;配置PATH环境&lt;br&gt;
+Use Git from Git Bash only&lt;br&gt;
+This is the safest choice as your PATH will not be modified at all.You will only be able to use the Git command line tools form Git Bash.&lt;br&gt;
+这是最安全的选择，因为您的PATH根本不会被修改。您只能使用 Git Bash 的 Git 命令行工具。&lt;/p&gt;
+&lt;p&gt;Use Git from the Windows Command Prompt&lt;br&gt;
+This option is considered safe as it only adds some minimal Git wrappers to your PATH to avoid cluttering your environment with optional Unix tools . You will be able to use Git from both Git Bash and the Windows Command Prompt.&lt;br&gt;
+这个选项被认为是安全的，因为它只向PATH添加一些最小的 Git包，以避免使用可选的Unix工具混淆环境。 您将能够从 Git Bash 和 Windows 命令提示符中使用 Git。&lt;/p&gt;
+&lt;p&gt;Use Git and optional Unix tools from the Windows Command Prompt&lt;br&gt;
+从Windows命令提示符使用Git和可选的Unix工具&lt;br&gt;
+Both Git and the optional Unix tools will be added to you PATH&lt;br&gt;
+Git和可选的Unix工具都将添加到您计算机的 PATH 中&lt;br&gt;
+Warning:This will override Windows tools like &amp;quot;find and sort&amp;quot;.Only use this option if you understand the implications.&lt;br&gt;
+警告：这将覆盖Windows工具，如 “ find 和 sort ”。只有在了解其含义后才使用此选项。&lt;/p&gt;
+&lt;p&gt;在这之后一路next使用默认值&lt;/p&gt;
+&lt;p&gt;安装好后检查一下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;14&#34;&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/a252aa13gy1gzmf0za1q8j208p02yaa2.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;接下来安装hexo&#34;&gt;接下来安装hexo&lt;/h2&gt;
+&lt;h5 id=&#34;介绍下在windows环境下安装hexo&#34;&gt;介绍下在windows环境下安装hexo&lt;/h5&gt;
+&lt;p&gt;找个空白文件夹，右键git base here&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/a252aa13gy1gzmf172695j207f0aht9h.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;img src=&#34;https://tvax2.sinaimg.cn/large/a252aa13gy1gzmf1gymg8j20gj0ah3za.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;输入以下命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo-cli
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果发现下载速度太慢的话，可以尝试更换为国内的npm源&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm config set registry https://registry.npm.taobao.org
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;下载完成后，输入 hexo version，显示出版本号等信息，即安装成功&lt;/p&gt;
+&lt;p&gt;之后输入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo init myblog
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;会在当前文件夹生成myblog文件夹，这个文件夹就是个人博客本地存放的位置&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;然后继续输入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo g
+hexo s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;15&#34;&gt;&lt;img src=&#34;https://tva4.sinaimg.cn/large/a252aa13gy1gzmf1oaclbj20fz0krthr.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;之后打开本地浏览器，输入url&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;localhost:4000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;就可以看到自己的hexo博客了。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;16&#34;&gt;&lt;img src=&#34;https://tvax3.sinaimg.cn/large/a252aa13gy1gzmf1uivfzj21hc0rw1kx.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;但这个在本地，下一篇介绍怎么部署实现外网访问，在之后讲讲怎么让它好看点&lt;/p&gt;
+&lt;p&gt;让它好看点&lt;/p&gt;
+">windows环境下安装git+node.js+hexo</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://girdea-psi.vercel.app/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
+&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
+&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
+">关于</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://girdea-psi.vercel.app/post/hello-gridea/"" data-c="
+          &lt;p&gt;👏  欢迎使用 &lt;strong&gt;Gridea&lt;/strong&gt; ！&lt;br&gt;
+✍️  &lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/getgridea/gridea&#34;&gt;Github&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://gridea.dev/&#34;&gt;Gridea 主页&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://fehey.com/&#34;&gt;示例网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;特性&#34;&gt;特性👇&lt;/h2&gt;
+&lt;p&gt;📝  你可以使用最酷的 &lt;strong&gt;Markdown&lt;/strong&gt; 语法，进行快速创作&lt;/p&gt;
+&lt;p&gt;🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片&lt;/p&gt;
+&lt;p&gt;🏷️  你可以对文章进行标签分组&lt;/p&gt;
+&lt;p&gt;📋  你可以自定义菜单，甚至可以创建外部链接菜单&lt;/p&gt;
+&lt;p&gt;💻  你可以在 &lt;strong&gt;Windows&lt;/strong&gt;，&lt;strong&gt;MacOS&lt;/strong&gt; 或 &lt;strong&gt;Linux&lt;/strong&gt; 设备上使用此客户端&lt;/p&gt;
+&lt;p&gt;🌎  你可以使用 &lt;strong&gt;𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌&lt;/strong&gt; 或 &lt;strong&gt;Coding Pages&lt;/strong&gt; 向世界展示，未来将支持更多平台&lt;/p&gt;
+&lt;p&gt;💬  你可以进行简单的配置，接入 &lt;a href=&#34;https://github.com/gitalk/gitalk&#34;&gt;Gitalk&lt;/a&gt; 或 &lt;a href=&#34;https://github.com/SukkaW/DisqusJS&#34;&gt;DisqusJS&lt;/a&gt; 评论系统&lt;/p&gt;
+&lt;p&gt;🇬🇧  你可以使用&lt;strong&gt;中文简体&lt;/strong&gt;或&lt;strong&gt;英语&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力&lt;/p&gt;
+&lt;p&gt;🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步&lt;/p&gt;
+&lt;p&gt;🌱 当然 &lt;strong&gt;Gridea&lt;/strong&gt; 还很年轻，有很多不足，但请相信，它会不停向前 🏃&lt;/p&gt;
+&lt;p&gt;未来，它一定会成为你离不开的伙伴&lt;/p&gt;
+&lt;p&gt;尽情发挥你的才华吧！&lt;/p&gt;
+&lt;p&gt;😘 Enjoy~&lt;/p&gt;
+">Hello Gridea</a>
+      </div>
+      
+    </div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let items = document.querySelectorAll('.item');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+    
+    close.addEventListener('click', function() {
+      searchMask.style = 'display: none;'
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    items.forEach(item => {
+      let a = item.querySelector('a');
+      contents.push({
+        title: a.innerText,
+        details: a.dataset.c,
+        link: a.href
+      })
+      item.remove();
+    })
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          let start = Date.now();
+          let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              if (content.title.includes(segment)) {
+                find = true;
+                positions.push({
+                  start: content.title.indexOf(segment),
+                  count: segment.length
+                })
+              } else if (content.details.includes(segment)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
 
 <input hidden id="copy" />
 <script>

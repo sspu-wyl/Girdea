@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://girdea-psi.vercel.app</id>
     <title>Gridea</title>
-    <updated>2022-02-23T09:05:01.225Z</updated>
+    <updated>2022-02-23T09:07:39.822Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://girdea-psi.vercel.app"/>
     <link rel="self" href="https://girdea-psi.vercel.app/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://girdea-psi.vercel.app/favicon.ico</icon>
     <rights>All rights reserved 2022, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[windows环境下安装git+node.js+hexo]]></title>
+        <title type="html"><![CDATA[#####windows环境下安装git+node.js+hexo]]></title>
         <id>https://girdea-psi.vercel.app/post/1/</id>
         <link href="https://girdea-psi.vercel.app/post/1/">
         </link>
@@ -20,7 +20,7 @@
 <figure data-type="image" tabindex="1"><img src="https://tvax1.sinaimg.cn/large/a252aa13gy1gzmey1zlu9j21hc0rqdov.jpg" alt="image" loading="lazy"></figure>
 <p>下好后双击.msi文件，选择安装文件夹然后就是一路next--&gt;finish</p>
 <figure data-type="image" tabindex="2"><img src="https://tva4.sinaimg.cn/large/a252aa13gy1gzmeyn3h0bj20be02ljrl.jpg" alt="image" loading="lazy"></figure>
-<h5 id="测试是否安装成功我这个是之前装好的老版本-ps请忽略上下版本号为啥不一样">测试是否安装成功（我这个是之前装好的老版本 PS:请忽略上下版本号为啥不一样）</h5>
+<p>测试是否安装成功（我这个是之前装好的老版本 PS:请忽略上下版本号为啥不一样）</p>
 <p>win+r输入cmd，在cmd中输入</p>
 <pre><code>ndoe -v
 </code></pre>

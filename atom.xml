@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://girdea-psi.vercel.app</id>
     <title>Gridea</title>
-    <updated>2022-02-23T09:28:06.568Z</updated>
+    <updated>2022-02-23T09:32:43.105Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://girdea-psi.vercel.app"/>
     <link rel="self" href="https://girdea-psi.vercel.app/atom.xml"/>
@@ -84,7 +84,7 @@ Warning:This will override Windows tools like &quot;find and sort&quot;.Only use
 </code></pre>
 <figure data-type="image" tabindex="14"><img src="https://tva1.sinaimg.cn/large/a252aa13gy1gzmf0za1q8j208p02yaa2.jpg" alt="image" loading="lazy"></figure>
 <p>##接下来安装hexo</p>
-<p>#介绍下在windows环境下安装hexo</p>
+<p>介绍下在windows环境下安装hexo</p>
 <p>找个空白文件夹，右键git base here</p>
 <p><img src="https://tva1.sinaimg.cn/large/a252aa13gy1gzmf172695j207f0aht9h.jpg" alt="image" loading="lazy"><img src="https://tvax2.sinaimg.cn/large/a252aa13gy1gzmf1gymg8j20gj0ah3za.jpg" alt="image" loading="lazy"></p>
 <p>输入以下命令</p>

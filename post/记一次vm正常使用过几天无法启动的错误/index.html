@@ -2,23 +2,20 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | sspu-wyl</title>
+<title>记一次vm正常使用过几天无法启动的错误 | sspu-wyl</title>
 <link rel="shortcut icon" href="https://girdea-psi.vercel.app/favicon.ico?v=1646063113920">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://girdea-psi.vercel.app/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="关于 | sspu-wyl - Atom Feed" href="https://girdea-psi.vercel.app/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="记一次vm正常使用过几天无法启动的错误 | sspu-wyl - Atom Feed" href="https://girdea-psi.vercel.app/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
+    <meta name="description" content="记一次vm正常使用过几天无法启动的错误
+首先打开虚机弹出错误代码
 
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+VMware Workstation 不可恢复错误: (vcpu-1)
+Exception 0xc0000005 (access violation) has occurr..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -81,11 +78,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              记一次vm正常使用过几天无法启动的错误
             </h2>
             <div class="post-info">
               <span>
-                2019-01-25
+                2022-02-28
               </span>
               <span>
                 1 min read
@@ -93,27 +90,48 @@
               
             </div>
             
+              <img class="post-feature-image" src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/5.jpg" alt="">
+            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+                <h1 id="记一次vm正常使用过几天无法启动的错误">记一次vm正常使用过几天无法启动的错误</h1>
+<p>首先打开虚机弹出错误代码</p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20190325185247385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzAyNTA3MQ==,size_16,color_FFFFFF,t_70" alt="img" loading="lazy"></figure>
+<pre><code>VMware Workstation 不可恢复错误: (vcpu-1)
+Exception 0xc0000005 (access violation) has occurred.
+</code></pre>
+<p>上网搜索造成错误的原因</p>
+<p>自查bios设置中虚拟化已打开，本人使用笔记本为redmi G 2021版 3060</p>
+<p>bios中并无相关设置，但搜索后发现已默认开启</p>
+<figure data-type="image" tabindex="2"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220228133231806.png" alt="image-20220228133231806" loading="lazy"></figure>
+<h6 id="解决方法一">解决方法一：</h6>
+<p>打开“控制面板”，进入“卸载程序”</p>
+<p>双击VMWare，不要选择“卸载”，选择“<strong>修复</strong>”</p>
+<p>完成后，再打开虚拟机即恢复正常。</p>
+<figure data-type="image" tabindex="3"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220228132934211.png" alt="image-20220228132934211" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220228132959522.png" alt="image-20220228132959522" loading="lazy"></figure>
+<p>编辑虚拟机--&gt;显示--&gt;3D图形√去掉</p>
+<figure data-type="image" tabindex="5"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220228133047445.png" alt="image-20220228133047445" loading="lazy"></figure>
+<p>但尝试此方法并未解决我的问题</p>
+<h6 id="解决方法二">解决方法二：</h6>
+<p>万能重装，卸载vm然后重装，重启数次，结果还是没解决</p>
+<h6 id="解决方法三">解决方法三：</h6>
+<p>升级vm，升级后就正常了</p>
+<h5 id="总结">总结：</h5>
+<p>一个很奇怪的错误。希望遇到的人可以说试试这几个方法。</p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
-</ul>
-</li>
+<li><a href="#%E8%AE%B0%E4%B8%80%E6%AC%A1vm%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E8%BF%87%E5%87%A0%E5%A4%A9%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E7%9A%84%E9%94%99%E8%AF%AF">记一次vm正常使用过几天无法启动的错误</a><br>
+*<br>
+*<br>
+*<br>
+*<br>
+* <a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%B8%80">解决方法一：</a><br>
+* <a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%BA%8C">解决方法二：</a><br>
+* <a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%B8%89">解决方法三：</a><br>
+* <a href="#%E6%80%BB%E7%BB%93">总结：</a></li>
 </ul>
 
               </div>
@@ -121,6 +139,15 @@
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://girdea-psi.vercel.app/post/1/">
+              <h3 class="post-title">
+                windows环境下安装git+node.js+hexo
+              </h3>
+            </a>
+          </div>
         
 
         

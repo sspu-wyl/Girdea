@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://girdea-psi.vercel.app</id>
     <title>sspu-wyl</title>
-    <updated>2022-02-23T14:06:04.576Z</updated>
+    <updated>2022-02-28T15:42:15.437Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://girdea-psi.vercel.app"/>
     <link rel="self" href="https://girdea-psi.vercel.app/atom.xml"/>
@@ -10,6 +10,39 @@
     <logo>https://girdea-psi.vercel.app/images/avatar.png</logo>
     <icon>https://girdea-psi.vercel.app/favicon.ico</icon>
     <rights>All rights reserved 2022, sspu-wyl</rights>
+    <entry>
+        <title type="html"><![CDATA[记一次vm正常使用过几天无法启动的错误]]></title>
+        <id>https://girdea-psi.vercel.app/post/ji-yi-ci-vm-zheng-chang-shi-yong-guo-ji-tian-wu-fa-qi-dong-de-cuo-wu/</id>
+        <link href="https://girdea-psi.vercel.app/post/ji-yi-ci-vm-zheng-chang-shi-yong-guo-ji-tian-wu-fa-qi-dong-de-cuo-wu/">
+        </link>
+        <updated>2022-02-28T15:34:35.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="记一次vm正常使用过几天无法启动的错误">记一次vm正常使用过几天无法启动的错误</h1>
+<p>首先打开虚机弹出错误代码</p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20190325185247385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzAyNTA3MQ==,size_16,color_FFFFFF,t_70" alt="img" loading="lazy"></figure>
+<pre><code>VMware Workstation 不可恢复错误: (vcpu-1)
+Exception 0xc0000005 (access violation) has occurred.
+</code></pre>
+<p>上网搜索造成错误的原因</p>
+<p>自查bios设置中虚拟化已打开，本人使用笔记本为redmi G 2021版 3060</p>
+<p>bios中并无相关设置，但搜索后发现已默认开启</p>
+<figure data-type="image" tabindex="2"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220228133231806.png" alt="image-20220228133231806" loading="lazy"></figure>
+<h6 id="解决方法一">解决方法一：</h6>
+<p>打开“控制面板”，进入“卸载程序”</p>
+<p>双击VMWare，不要选择“卸载”，选择“<strong>修复</strong>”</p>
+<p>完成后，再打开虚拟机即恢复正常。</p>
+<figure data-type="image" tabindex="3"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220228132934211.png" alt="image-20220228132934211" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220228132959522.png" alt="image-20220228132959522" loading="lazy"></figure>
+<p>编辑虚拟机--&gt;显示--&gt;3D图形√去掉</p>
+<figure data-type="image" tabindex="5"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220228133047445.png" alt="image-20220228133047445" loading="lazy"></figure>
+<p>但尝试此方法并未解决我的问题</p>
+<h6 id="解决方法二">解决方法二：</h6>
+<p>万能重装，卸载vm然后重装，重启数次，结果还是没解决</p>
+<h6 id="解决方法三">解决方法三：</h6>
+<p>升级vm，升级后就正常了</p>
+<h5 id="总结">总结：</h5>
+<p>一个很奇怪的错误。希望遇到的人可以说试试这几个方法。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[windows环境下安装git+node.js+hexo]]></title>
         <id>https://girdea-psi.vercel.app/post/1/</id>

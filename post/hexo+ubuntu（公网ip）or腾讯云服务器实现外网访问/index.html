@@ -1,0 +1,429 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>hexo+ubuntu（公网ip）/腾讯云服务器实现外网访问 | sspu-wyl</title>
+<link rel="shortcut icon" href="https://girdea-psi.vercel.app/favicon.ico?v=1646127449029">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://girdea-psi.vercel.app/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="hexo+ubuntu（公网ip）/腾讯云服务器实现外网访问 | sspu-wyl - Atom Feed" href="https://girdea-psi.vercel.app/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="之前写了在win10中搭建hexo的编译环境实现了本地4000端口访问你的博客
+接下来写写怎么实现外网访问，让大家都能看到你的文章吧！
+1.有公网ip的情况下
+在ubuntu中安装nginx
+① apt-get安装nginx
+#先切换至ro..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://girdea-psi.vercel.app">
+  <img class="avatar" src="https://girdea-psi.vercel.app/images/avatar.png?v=1646127449029" alt="">
+  </a>
+  <h1 class="site-title">
+    sspu-wyl
+  </h1>
+  <p class="site-description">
+    This is my Dream
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              hexo+ubuntu（公网ip）/腾讯云服务器实现外网访问
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-03-01
+              </span>
+              <span>
+                8 min read
+              </span>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/8.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>之前写了在win10中搭建hexo的编译环境实现了本地4000端口访问你的博客</p>
+<p>接下来写写怎么实现外网访问，让大家都能看到你的文章吧！</p>
+<h4 id="1有公网ip的情况下">1.有公网ip的情况下</h4>
+<p>在ubuntu中安装nginx</p>
+<h5 id="1-apt-get安装nginx">① apt-get安装nginx</h5>
+<pre><code>#先切换至root用户
+sudo su root
+apt-get install nginx
+</code></pre>
+<p>之后查看ngnix是否安装成功</p>
+<pre><code>nginx -v
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301152556629.png" alt="image-20220301152556629" loading="lazy"></figure>
+<p>启动nginx</p>
+<pre><code>service nginx start
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301152708171.png" alt="image-20220301152708171" loading="lazy"></figure>
+<p>启动后，在同网段的浏览器中输入ip地址，即可看到nginx的欢迎界面，至此nginx安装成功</p>
+<figure data-type="image" tabindex="3"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301152908421.png" alt="image-20220301152908421" loading="lazy"></figure>
+<p>nginx文件安装完成之后的文件位置：</p>
+<ul>
+<li>/usr/sbin/nginx：主程序</li>
+<li>/etc/nginx：存放配置文件</li>
+<li>/usr/share/nginx：存放静态文件</li>
+<li>/var/log/nginx：存放日志</li>
+</ul>
+<h5 id="2-下载nginx包安装">② 下载nginx包安装</h5>
+<p>先安装依赖包</p>
+<pre><code>apt-get install gcc
+apt-get install libpcre3 libpcre3-dev
+apt-get install zlib1g zlib1g-dev
+# Ubuntu14.04的仓库中没有发现openssl-dev，由下面openssl和libssl-dev替代
+#apt-get install openssl openssl-dev
+sudo apt-get install openssl 
+sudo apt-get install libssl-dev
+</code></pre>
+<p>安装nginx</p>
+<pre><code>cd /usr/local
+mkdir nginx
+cd nginx
+wget http://nginx.org/download/nginx-1.13.7.tar.gz
+tar -xvf nginx-1.13.7.tar.gz 
+</code></pre>
+<p>编译nginx</p>
+<pre><code># 进入nginx目录
+/usr/local/nginx/nginx-1.13.7
+# 执行命令
+./configure
+# 执行make命令
+make
+# 执行make install命令
+make install
+</code></pre>
+<p>启动nginx</p>
+<pre><code>#进入nginx启动目录
+cd /usr/local/nginx/sbin
+# 启动nginx
+./nginx
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301153315627.png" alt="image-20220301153315627" loading="lazy"></figure>
+<p>同样方法进行验证，访问成功，nginx安装完毕</p>
+<h5 id="psubuntu下卸载nginx踩坑">ps：ubuntu下卸载nginx，踩坑</h5>
+<pre><code>    sudo apt-get remove nginx nginx-common # 卸载删除除了配置文件以外的所有文件。
+
+    sudo apt-get purge nginx nginx-common # 卸载所有东东，包括删除配置文件。
+
+    sudo apt-get autoremove # 在上面命令结束后执行，主要是卸载删除Nginx的不再被使用的依赖包。
+
+    sudo apt-get remove nginx-full nginx-common #卸载删除两个主要的包。
+
+　　 sudo service nginx restart  #重启nginx
+</code></pre>
+<h5 id="查看nginx进程">查看nginx进程</h5>
+<pre><code>######启动Nginx服务
+[root@ ~]# service nginx start
+######停止Nginx服务
+[root@ ~]# service nginx stop
+######重启Nginx服务
+[root@ ~]# service nginx restart
+######Nginx服务的状态
+[root@ ~]# service nginx status
+######在Nginx服务启动的状态下，重新加载nginx.conf这个配置文件
+[root@ ~]# service nginx reload
+</code></pre>
+<p>接下来在你的路由器上把这个ip的80端口映射出去就可以外网访问了</p>
+<p>我这里演示ikuai软路由和openwrt的软路由操作方式</p>
+<h5 id="1-ikuai">① ikuai</h5>
+<p>登录--&gt;网络设置--&gt;端口映射--&gt;添加</p>
+<figure data-type="image" tabindex="5"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301154620529.png" alt="image-20220301154620529" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301154722654.png" alt="image-20220301154722654" loading="lazy"></figure>
+<h5 id="2-openwrt">② openwrt</h5>
+<p>登录--&gt;网络--&gt;防火墙--&gt;端口转发--&gt;填好信息--&gt;添加--&gt;保存&amp;应用</p>
+<figure data-type="image" tabindex="7"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301155716259.png" alt="image-20220301155716259" loading="lazy"></figure>
+<p>这样就可以通过公网ip进行访问了，之后还会更新一个通过腾讯云绑定动态公网ip的文章</p>
+<p>（以后会更新软路由的文章，软路由yyds）</p>
+<h4 id="没有公网ip的情况下">没有公网ip的情况下</h4>
+<p>通过腾讯云/阿里云的服务器同样可以实现外网访问</p>
+<p>这里先说下github然后说下腾讯云的ubuntu服务器实现外网访问</p>
+<h4 id="将本地的hexo网站使用git与nginx部署到服务器">将本地的hexo网站使用Git与nginx部署到服务器</h4>
+<h4 id="两种部署方法">两种部署方法</h4>
+<ul>
+<li>通过<strong>github</strong>来部署</li>
+<li>部署到自己的服务器上</li>
+</ul>
+<h5 id="1第一种做法github不需要购买域名">①第一种做法（github，不需要购买域名）</h5>
+<p>登录你的github建立一个github.io仓库，名字要叫：<strong>自己用户名.github.io</strong>，这个名称我已经创建了，一定要public公开的</p>
+<figure data-type="image" tabindex="8"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301162133394.png" alt="image-20220301162133394" loading="lazy"></figure>
+<p>设置ssh密钥</p>
+<p>打开我们win本地的git bash，设置用户名和邮箱内容</p>
+<pre><code>git config --global user.name &quot;your GitHub username&quot;
+git config --global user.email &quot;your GitHub email&quot;
+</code></pre>
+<p>之后我们来生成个ssh密钥，ssh密钥可以让你本地的内容直接推送到github仓库里</p>
+<pre><code>ssh-keygen -t rsa -C &quot;your GitHub email&quot;
+</code></pre>
+<p>之后会让你设置密码，不用管，一路回车</p>
+<p>生成好后去<strong>C盘/用户/你的用户名/.ssh文件夹里找到 id_rsa.pub文件</strong>，复制里面的内容</p>
+<figure data-type="image" tabindex="9"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301163141220.png" alt="image-20220301163141220" loading="lazy"></figure>
+<p>打开<a href="https://github.com/settings/keys">github设置ssh keys页面</a>，选择new ssh keys，把刚刚id_rsa.pub里面的内容粘贴进去</p>
+<figure data-type="image" tabindex="10"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301163344780.png" alt="image-20220301163344780" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301163359524.png" alt="" loading="lazy"></figure>
+<h5 id="推送到github">推送到GitHub</h5>
+<p>只有将本地的hexo博客内容推送到github.io仓库，才能实现外网访问，让网上的其他人看到你的成果。</p>
+<p>打开之前的myblog文件夹，找到_config.yml文件</p>
+<figure data-type="image" tabindex="12"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301163722233.png" alt="image-20220301163722233" loading="lazy"></figure>
+<p>编辑他来让我们的hexo与github关联起来</p>
+<pre><code>deploy:
+  type: git
+  repository: git@github.com:sspu-wyl/sspu-wyl.github.io.git
+  branch: master
+</code></pre>
+<figure data-type="image" tabindex="13"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301163914951.png" alt="image-20220301163914951" loading="lazy"></figure>
+<p>保存文件，打开git bash，安装hexo部署git的插件</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre>
+<p>然后准备上传</p>
+<pre><code>hexo clean #清除缓存文件 (db.json) 和已生成的静态文件 (public)。在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。
+hexo g #生成静态文件。
+hexo d #部署网站。
+</code></pre>
+<figure data-type="image" tabindex="14"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301165801408.png" alt="image-20220301165801408" loading="lazy"></figure>
+<p>完成后，打开浏览器，输入 <strong>你的GitHub用户名.github.io</strong>，就可以看到自己的网页界面了。</p>
+<figure data-type="image" tabindex="15"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301164509428.png" alt="image-20220301164509428" loading="lazy"></figure>
+<h5 id="2部署到自己的服务器">②部署到自己的服务器</h5>
+<p>这里演示腾讯云服务器，操作系统为ubuntu20.04 64位</p>
+<p>防火墙我直接放通了</p>
+<figure data-type="image" tabindex="16"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301165941809.png" alt="image-20220301165941809" loading="lazy"></figure>
+<p>用MobaXterm连接你的ubuntu（MobaXterm真的好用，有时间之后写下这个工具和腾讯云的服务器）</p>
+<p>我安装的是ubuntu20.04版本的设置直接为root用户登录</p>
+<figure data-type="image" tabindex="17"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301155422362.png" alt="image-20220301155422362" loading="lazy"></figure>
+<p>老传统先更新下软件</p>
+<pre><code>apt-get update
+</code></pre>
+<p>连接上去后同样的操作安装nginx</p>
+<p>安装完后直接访问你的腾讯云服务器的公网ip就可以啦来来来，接下来安装git</p>
+<pre><code>sudo apt-get install git
+</code></pre>
+<p>来看看git装上了吗</p>
+<pre><code>git --version
+</code></pre>
+<figure data-type="image" tabindex="18"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301160628035.png" alt="image-20220301160628035" loading="lazy"></figure>
+<h4 id="服务器创建git仓库-这一步很重要涉及到权限分配">服务器创建git仓库 这一步很重要涉及到权限分配</h4>
+<p>服务器需要弄个git仓库，储存传过来的hexo静态文件，作为网站的部署仓库</p>
+<p>建立文件路径：</p>
+<pre><code>mkdir /var/repo/
+</code></pre>
+<p>修改权限：</p>
+<pre><code>chown -R $USER:$USER /var/repo/
+chmod -R 755 /var/repo/
+</code></pre>
+<p>创建远程git仓库，这里我还用myblog这个名字</p>
+<pre><code>cd /var/repo
+git init --bare myblog.git
+</code></pre>
+<figure data-type="image" tabindex="19"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301170835121.png" alt="image-20220301170835121" loading="lazy"></figure>
+<h4 id="服务器修改nginx配置-这一步很重要涉及到权限分配">服务器修改nginx配置 这一步很重要涉及到权限分配</h4>
+<p>创建目录并修改目录所有权和权限</p>
+<pre><code>mkdir -p /var/www/hexo
+
+chown -R $USER:$USER /var/www/hexo
+chmod -R 755 /var/www/hexo
+</code></pre>
+<p>修改 Nginx 的 default 文件使得 root 指向刚刚创建的 /var/www/hexo目录：</p>
+<pre><code>vi /etc/nginx/sites-available/default
+</code></pre>
+<p>修改以下的语句</p>
+<figure data-type="image" tabindex="20"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301171118478.png" alt="image-20220301171118478" loading="lazy"></figure>
+<p>然后重启nginx服务</p>
+<pre><code>service nginx restart
+</code></pre>
+<p>此时已经完成一半了</p>
+<h5 id="配置钩子文件hooks">配置钩子文件（hooks）</h5>
+<p>新建钩子文件，其中myblog.git文件是上面创建的仓库</p>
+<pre><code>vi /var/repo/myblog.git/hooks/post-receive
+</code></pre>
+<p>打开后，加入一下代码（myblog.git是我的仓库名）</p>
+<p>这条git 命令可以在我们每次 push 完之后，把部署目录更新到博客的最新生成状态。这样便可以完成达到自动部署的目的了。</p>
+<pre><code>#!/bin/bash
+
+git --work-tree=/var/www/hexo --git-dir=/var/repo/myblog.git checkout -f
+</code></pre>
+<p>保存文件，增加该文件的可执行权限</p>
+<pre><code>chmod +x /var/repo/myblog.git/hooks/post-receive
+</code></pre>
+<h5 id="部署本地hexo到本地远程服务器">部署本地hexo到本地/远程服务器</h5>
+<p>因为我服务器使用的是root用户，所以这里@之前是用root。</p>
+<pre><code>git clone root@{云服务器IP}:/var/repo/myblog.git
+</code></pre>
+<p>将 deploy 目标改为 {服务器用户名}@{服务IP}:/var/repo/myblog.git：</p>
+<figure data-type="image" tabindex="21"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301171816278.png" alt="image-20220301171816278" loading="lazy"></figure>
+<p>在个人博客站点目录下，打开 Git bash ,输入 hexo clean &amp;&amp; hexo g&amp;&amp;hexo d 部署。</p>
+<figure data-type="image" tabindex="22"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301172150361.png" alt="image-20220301172150361" loading="lazy"></figure>
+<figure data-type="image" tabindex="23"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301172206327.png" alt="image-20220301172206327" loading="lazy"></figure>
+<p>接下来打开你的服务器ip地址/你的公网ip，即可访问你的个人博客了！！！</p>
+<figure data-type="image" tabindex="24"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301172319508.png" alt="image-20220301172319508" loading="lazy"></figure>
+<p>（上图为本地服务器公网ip的）</p>
+<figure data-type="image" tabindex="25"><img src="https://pic-1258760431.cos.ap-shanghai.myqcloud.com/image-20220301172414104.png" alt="image-20220301172414104" loading="lazy"></figure>
+<p>（上图为腾讯云服务器的ip地址）</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1%E6%9C%89%E5%85%AC%E7%BD%91ip%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B">1.有公网ip的情况下</a>
+<ul>
+<li><a href="#1-apt-get%E5%AE%89%E8%A3%85nginx">① apt-get安装nginx</a></li>
+<li><a href="#2-%E4%B8%8B%E8%BD%BDnginx%E5%8C%85%E5%AE%89%E8%A3%85">② 下载nginx包安装</a></li>
+<li><a href="#psubuntu%E4%B8%8B%E5%8D%B8%E8%BD%BDnginx%E8%B8%A9%E5%9D%91">ps：ubuntu下卸载nginx，踩坑</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bnginx%E8%BF%9B%E7%A8%8B">查看nginx进程</a></li>
+<li><a href="#1-ikuai">① ikuai</a></li>
+<li><a href="#2-openwrt">② openwrt</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B2%A1%E6%9C%89%E5%85%AC%E7%BD%91ip%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B">没有公网ip的情况下</a></li>
+<li><a href="#%E5%B0%86%E6%9C%AC%E5%9C%B0%E7%9A%84hexo%E7%BD%91%E7%AB%99%E4%BD%BF%E7%94%A8git%E4%B8%8Enginx%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8">将本地的hexo网站使用Git与nginx部署到服务器</a></li>
+<li><a href="#%E4%B8%A4%E7%A7%8D%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95">两种部署方法</a>
+<ul>
+<li><a href="#1%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%81%9A%E6%B3%95github%E4%B8%8D%E9%9C%80%E8%A6%81%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D">①第一种做法（github，不需要购买域名）</a></li>
+<li><a href="#%E6%8E%A8%E9%80%81%E5%88%B0github">推送到GitHub</a></li>
+<li><a href="#2%E9%83%A8%E7%BD%B2%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8">②部署到自己的服务器</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9B%E5%BB%BAgit%E4%BB%93%E5%BA%93-%E8%BF%99%E4%B8%80%E6%AD%A5%E5%BE%88%E9%87%8D%E8%A6%81%E6%B6%89%E5%8F%8A%E5%88%B0%E6%9D%83%E9%99%90%E5%88%86%E9%85%8D">服务器创建git仓库 这一步很重要涉及到权限分配</a></li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BF%AE%E6%94%B9nginx%E9%85%8D%E7%BD%AE-%E8%BF%99%E4%B8%80%E6%AD%A5%E5%BE%88%E9%87%8D%E8%A6%81%E6%B6%89%E5%8F%8A%E5%88%B0%E6%9D%83%E9%99%90%E5%88%86%E9%85%8D">服务器修改nginx配置 这一步很重要涉及到权限分配</a>
+<ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E9%92%A9%E5%AD%90%E6%96%87%E4%BB%B6hooks">配置钩子文件（hooks）</a></li>
+<li><a href="#%E9%83%A8%E7%BD%B2%E6%9C%AC%E5%9C%B0hexo%E5%88%B0%E6%9C%AC%E5%9C%B0%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8">部署本地hexo到本地/远程服务器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://girdea-psi.vercel.app/post/介绍下图床搭建的几种方法/">
+              <h3 class="post-title">
+                介绍下图床搭建的几种方法
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://girdea-psi.vercel.app/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
